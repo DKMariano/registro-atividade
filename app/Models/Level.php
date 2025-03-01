@@ -11,9 +11,9 @@ class Level extends Model
 
     protected $fillable = ['nome'];
 
-public function users()
-{
-    return $this->hasMany(User::class, 'level_id', 'id');
-}
+    public function users()
+    {
+        return $this->hasMany(User::class, 'level_id', 'id');
+    }
 
 }
