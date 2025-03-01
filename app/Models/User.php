@@ -49,4 +49,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class, 'level_id', 'id');
+    }
+
+    public function orgao()
+    {
+        return $this->belongsTo(Orgao::class, 'orgao_id', 'id');
+    }
+
+    public function atividades()
+    {
+        return $this->hasMany(Atividade::class, 'user_id', 'id');
+    }
 }

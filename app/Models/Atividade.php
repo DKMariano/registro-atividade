@@ -17,8 +17,19 @@ class Atividade extends Model
         'category_id',
         'orgao_id'
         ];
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function orgao()
+    {
+        return $this->belongsTo(Orgao::class, 'orgao_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
