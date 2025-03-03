@@ -65,4 +65,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Atividade::class, 'user_id', 'id');
     }
+
+    
 }

@@ -17,7 +17,17 @@
         <div class="text-login">
           Preencha os campos abaixo e realize seu cadastro.
         </div>
-        <form>
+        <form method="POST" action="{{route('register_action')}}">
+          @csrf
+          <div>
+            @if($errors->any())
+              <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+              </ul>
+            @endif
+          </div>
           <div class="name-area">
             <div class="name-label">Nome</div>
             <input type="text" name="nome" placeholder="Digite o seu nome" value="{{@old('name')}}"/>
@@ -26,9 +36,13 @@
             <div class="email-label">E-mail</div>
             <input type="email" name="email" placeholder="Digite o seu e-mail" value="{{@old('email')}}"/>
           </div>
+            <div class="cpf-area">
+            <div class="cpf-label">CPF</div>
+            <input type="text" name="cpf" placeholder="Digite o seu CPF" value="{{@old('CPF')}}"/>
+          </div>
           <div class="orgao-area">
             <div class="orgao-label">Órgão</div>
-            <select name="orgao" id="">
+            <select name="orgao" placeholder="Escolha o seu órgão "/>
             <option value="SEMIT">Secretaria Municipal de Inovação e Tecnologia</option>
             </select>
           </div>
@@ -42,7 +56,7 @@
           <div class="password-area">
             <div class="password-label">Confirme sua Senha</div>
             <div class="password-input-area">
-              <input type="password_confirmation" name="password" placeholder="Digite a sua senha" />
+              <input type="password" name="password_confirmation" placeholder="Confirme a sua senha" />
               <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
             </div>
           </div>
