@@ -19,6 +19,7 @@
         </div>
         <form method="POST" action="{{route('register_action')}}">
           @csrf
+          <!-- Nome -->
           <div class="name-area">
             <div class="name-label">Nome</div>
             <input type="text" class="@error('nome') is-invalid @enderror" name="nome" placeholder="Digite o seu nome" value="{{@old('name')}}"/>
@@ -28,6 +29,7 @@
               </div>
             @enderror
           </div>
+          <!-- E-mail -->
           <div class="email-area">
             <div class="email-label">E-mail</div>
             <input type="email" class="@error('email') is-invalid @enderror" name="email" placeholder="Digite o seu e-mail" value="{{@old('email')}}"/>
@@ -37,6 +39,7 @@
               </div>
             @enderror            
           </div>
+            <!-- CPF -->
             <div class="cpf-area">
             <div class="cpf-label">CPF</div>
             <input type="text" class="@error('cpf') is-invalid @enderror" name="cpf" placeholder="Digite o seu CPF" value="{{@old('cpf')}}"/>
@@ -46,12 +49,16 @@
               </div>
             @enderror
           </div>
+          <!-- Órgão -->
           <div class="orgao-area">
             <div class="orgao-label">Órgão</div>
-            <select name="orgao" placeholder="Escolha o seu órgão "/>
-            <option value="SEMIT">Secretaria Municipal de Inovação e Tecnologia</option>
+            <select name="orgao" >
+              @foreach ($orgaos as $orgao)
+                <option value="{{$orgao->id}}">{{$orgao->nome}}</option>
+              @endforeach
             </select>
           </div>
+          <!-- Senha -->
           <div class="password-area">
             <div class="password-label">Senha</div>
             <div class="password-input-area">
@@ -64,6 +71,7 @@
                 </div>
               @enderror
           </div>
+          <!-- Confirmar Senha -->
           <div class="password-area">
             <div class="password-label">Confirme sua Senha</div>
             <div class="password-input-area">
