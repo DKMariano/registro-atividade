@@ -6,12 +6,24 @@
 * Errors
 */
 .error {
-    background-color: rgba(255,0,0,0.2);
-    padding: 5px 10px;
+    background-color: rgba(255, 0, 0, 0.3);
+    padding: 8px 12px;
+    color: #B00020; 
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    border-left: 4px solid #B00020; 
+    margin-top: 5px;
 }
-.is-invalid{
-    border: 1px solid rgba(255,0,0,0.2) !important;
+
+
+.is-invalid {
+    border: 2px solid #B00020;
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 6px; 
+    padding: 5px;
 }
+
 /*
 * Back Buttom
 */
@@ -100,6 +112,8 @@ form {
   font-weight: 400;
   line-height: normal;
   outline: 0;
+  margin-top: 5px;
+  cursor: pointer;
 }
 .cpf-area,
 .orgao-area,
@@ -182,13 +196,36 @@ form {
   .text-login {
     display: block;
   }
+  
   form {
-    width: 90%;
-    margin-top: 40px;
+    width: 100%;
+    max-width: 472px;
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column; /* Garante que os elementos fiquem alinhados na vertical */
+    align-items: center; /* Centraliza os itens */
   }
+
   .login-button {
-    margin-top: 24px;
+    width: 100%; /* Garante que ocupe toda a largura do form */
+    max-width: 472px; /* Mantém o tamanho adequado */
+    height: 64px;
+    background-color: #5c7bfa;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border: 0;
+    cursor: pointer;
+    transition: 0.3s;
+    display: block; /* Evita que seja tratado como inline */
+    text-align: center;
   }
+
+  .login-button:hover {
+    background-color: #3f5fd9; /* Azul mais escuro no hover */
+  }
+
+
   .terms {
     display: none;
   }

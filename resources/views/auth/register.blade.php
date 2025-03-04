@@ -19,26 +19,32 @@
         </div>
         <form method="POST" action="{{route('register_action')}}">
           @csrf
-          <div>
-            @if($errors->any())
-              <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{$error}}</li>
-                @endforeach
-              </ul>
-            @endif
-          </div>
           <div class="name-area">
             <div class="name-label">Nome</div>
-            <input type="text" name="nome" placeholder="Digite o seu nome" value="{{@old('name')}}"/>
+            <input type="text" class="@error('nome') is-invalid @enderror" name="nome" placeholder="Digite o seu nome" value="{{@old('name')}}"/>
+            @error('nome')
+              <div class="error">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
           <div class="email-area">
             <div class="email-label">E-mail</div>
-            <input type="email" name="email" placeholder="Digite o seu e-mail" value="{{@old('email')}}"/>
+            <input type="email" class="@error('email') is-invalid @enderror" name="email" placeholder="Digite o seu e-mail" value="{{@old('email')}}"/>
+            @error('email')
+              <div class="error">
+                {{ $message }}
+              </div>
+            @enderror            
           </div>
             <div class="cpf-area">
             <div class="cpf-label">CPF</div>
-            <input type="text" name="cpf" placeholder="Digite o seu CPF" value="{{@old('CPF')}}"/>
+            <input type="text" class="@error('cpf') is-invalid @enderror" name="cpf" placeholder="Digite o seu CPF" value="{{@old('cpf')}}"/>
+            @error('cpf')
+              <div class="error">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
           <div class="orgao-area">
             <div class="orgao-label">Órgão</div>
@@ -49,16 +55,21 @@
           <div class="password-area">
             <div class="password-label">Senha</div>
             <div class="password-input-area">
-              <input type="password" name="password" placeholder="Digite a sua senha" />
+              <input type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="Digite a sua senha" />
               <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
             </div>
+              @error('password')
+                <div class="error">
+                  {{ $message }}
+                </div>
+              @enderror
           </div>
           <div class="password-area">
             <div class="password-label">Confirme sua Senha</div>
             <div class="password-input-area">
               <input type="password" name="password_confirmation" placeholder="Confirme a sua senha" />
               <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-            </div>
+          </div>
           </div>
           <button class="login-button">Cadastrar</button>
         </form>
