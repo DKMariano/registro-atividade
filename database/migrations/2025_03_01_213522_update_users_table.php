@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('cpf', 14)->unique();
-            $table->string('celular', 30);
+            $table->string('celular', 30)->nullable();
             $table->foreignId('level_id')->nullable()->constrained('levels')->onDelete('cascade');
             $table->foreignId('orgao_id')->nullable()->constrained('orgaos')->onDelete('cascade');
             $table->softDeletes();

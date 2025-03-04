@@ -28,8 +28,9 @@ class AuthController extends Controller
 
     public function register_action(RegisterRequest $request)
     { 
-         dd($request);
+        $userData= $request->only(['nome', 'email', 'cpf', 'orgao', 'password']);
+        $userData['password'] = Hash::make($userData['password']);
+        $user = User::create($userData);
+        dd($userData);
     }
-
-
 }
